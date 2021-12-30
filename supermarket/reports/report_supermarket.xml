@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+            <!-- <template id="report_report_supermarket">
+                <t t-call="web.html_container">
+                    <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <t t-call="supermarket.report_supermarket">
+                        <h2> Supermarket</h2>
+                        </t>
+                    </t>
+                    </t>
+                </t>
+            </template> -->
+
+             <!-- <template id="report_supermarket">
+                <t t-call="web.html_container">
+                    <t t-call="web.external_layout">
+                        <t t-foreach="docs" t-as="doc">
+                            <t t-call="web.html_container">
+                                 <h2>Supermarket Report</h2>
+                               <table class="table table-sm">
+                                   <thead>
+                                       <tr>
+                                           <th>
+                                               <strong>Name</strong>
+                                           </th>
+                                           <th>
+                                            <strong>Age</strong>
+                                            </th>
+                                            <th>
+                                                <strong>Value</strong>
+                                            </th>
+                                            <th>
+                                             <strong>Value2</strong>
+                                             </th>
+                                             <th>
+                                                <strong>Value3</strong>
+                                                </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>
+                                                    <t t-esc="doc.name"/>                                           
+                                                </td>
+                                                <td>
+                                                    <t t-esc="doc.age"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="doc.value"/>                                           
+                                                </td>
+                                                <td>
+                                                    <t t-esc="doc.value2"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="doc.value3_ids"/>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                               </table>                          
+                            </t>                         
+                    </t>
+                </t>
+            </t>
+        </template> -->
+    
+
+</odoo>

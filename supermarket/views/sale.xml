@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem 
+    name="supermarket" 
+    id="sale_supermarket" 
+    parent="sale.sale_order_menu" 
+    action="supermarket_action_window"
+    />
+</odoo>

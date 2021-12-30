@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vehicle_rent_vehicle_rent,vehicle_rent.vehicle_rent,model_vehicle_rent_vehicle_rent,base.group_user,1,1,1,1
+access_vehicle_info,vehicle.info,model_vehicle_info,,1,1,1,1
+access_vehicle_brand,vehicle.brand,model_vehicle_brand,,1,1,1,1
+access_registered_city,registered.city,model_registered_city,,1,1,1,1
+access_vehicle_details,vehicle.details,model_vehicle_details,,1,1,1,1
+access_vehicle_name,vehicle.name,model_vehicle_name,,1,1,1,1

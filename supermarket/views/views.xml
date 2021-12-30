@@ -1,0 +1,233 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="supermarket.list">
+      <field name="name">supermarket list</field>
+      <field name="model">supermarket.supermarket</field>
+      <field name="arch" type="xml">
+        <tree>
+          
+          <field name="name"/>
+          <field name="gender"/>
+          <!-- <field name="country" widget="many2one_tags"/> -->
+          <field name="create_date"/>
+          <field name="age" optional="show"/>
+          <field name="description" optional="hide"/>
+          <field name="value" optional="show"/>
+          <field name="value2" optional="show"/>
+          <field name="amount" optional="hide"/>
+          <field name="grandtotal" optional="hide"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="supermarket.kanban">
+      <field name="name">supermarket kanban</field>
+      <field name="model">supermarket.supermarket</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <templates>
+            <t t-name="kanban-box">
+                <div t-attf-class="kanban_view_box">
+                    <div class="kanban_title">
+                        <strong class="kanban_title_field">
+                            <field name="name"/>
+                        </strong>
+                    </div>
+                    <div>
+                        <field name="gender"/>
+                    </div>
+                    <div>
+                        <field name="age"/>
+                    </div>
+                    <div>
+                        <field name="amount"/>
+                    </div>
+                </div>
+            </t>
+        </templates>
+          
+          
+        </kanban>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="supermarket.form">
+      <field name="name">supermarket form</field>
+      <field name="model">supermarket.supermarket</field>
+      <field name="arch" type="xml">
+        <form>
+        <header>
+        <button string="submit" type="object" name="submit" group="new"/>
+        
+        <!-- <button name="print_report" type="object" string="Print" class="oe_highlight"/> -->
+        </header>
+          <sheet>
+            <field name="image" widget="image" class="oe_avatar" />
+            <group>
+              <group>
+                
+                <field name="name" />
+
+                <field name="cost_id"/>
+
+                <field name="value3_ids"/>
+                <field name="create_date"/>
+                <field name = "simple"/>
+                <field name="value"/>
+                <field name="value2"/>
+                <field name="amount"/>
+                <field name="simple"/>
+                <field name="grandtotal"/>
+                <fields name="image"/>
+
+              </group>
+              <group>
+                <field name="gender"/>
+                <field name="age"/>
+              </group>
+            </group>
+            <notebook colspan="4">
+              <page string="Description">
+                <group>
+                  <field name="description" string="Description" nolabel="0"/>
+                </group>
+              </page>
+              <page string="Name">
+                <group>
+                  <field name="name" string="Name" nolabel='0'/>
+                </group>
+              </page>
+
+            </notebook>
+
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh':'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="supermarket.search">
+      <field name="name">supermarket search</field>
+      <field name="model">supermarket.supermarket</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="id"/>
+          <field name="name"/>
+          <field name="gender"/>
+          <field name="create_date"/>
+          <field name="age"/>
+          <field name="description"/>
+          <field name="value"/>
+          <field name="value2"/>
+          <field name="amount"/>
+          <field name="grandtotal"/>
+          <filter string="Sathishkana" name="sathishkana" domain="[('name','=','sathishkana')]"/>
+          <filter string="Age" name="age" domain="[('age','>=',18)]"/>
+          <group>
+            <filter string="Age" name="age" context="{'group_by':'age'}"/>
+            <filter string="Name" name="name" context="{'group_by':'name'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="supermarket.graph">
+      <field name="name">supermarket graph</field>
+      <field name="model">supermarket.supermarket</field>
+      <field name="arch" type="xml">
+        <graph string="supermarket graph">
+          <field name="id"/>
+          <field name="name"/>
+          <field name="gender"/>
+          <field name="age"/>
+          <field name="value"/>
+          <field name="value2"/>
+          <field name="amount"/>
+          <field name="grandtotal"/>
+        </graph>
+      </field>
+    </record>
+
+    <!--     Inheritance-->
+
+    <record id="sale_order_inherit_field" model="ir.ui.view">
+      <field name="name">sale.order.inherit</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='sale_order_template_id']" position="after">
+          <field name="reference"/>
+        </xpath>
+        <!--   		 <field name="sale_order_template_id" position="after">-->
+        <!--   			 <field name="reference" />-->
+        <!--   		 </field>-->
+      </field>
+    </record>
+    <record id="sale_order_inherit_tab" model="ir.ui.view">
+      <field name="name">sale.order.inherit</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//page[@name='order_lines']" position="before">
+          <page string="reference">
+          <group>
+          <field name="reference" string="Reference"/>
+          </group>
+        </page>
+        </xpath>
+        <!--   		 <field name="sale_order_template_id" position="after">-->
+        <!--   			 <field name="reference" />-->
+        <!--   		 </field>-->
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="supermarket_action_window">
+      <field name="name">supermarket window</field>
+      <field name="res_model">supermarket.supermarket</field>
+      <field name="view_mode">tree,form,search,kanban,graph</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="supermarket.action_server">
+      <field name="name">supermarket server</field>
+      <field name="model_id" ref="model_supermarket_supermarket"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form", 
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+    
+
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="supermarket" id="supermarket.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="supermarket.menu_1" parent="supermarket.menu_root"/>
+
+    <menuitem name="Menu 2" id="supermarket.menu_2" parent="supermarket.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="supermarket.menu_1_list" parent="supermarket.menu_1" action="supermarket_action_window"/>
+    <menuitem name="Server to list" id="supermarket" parent="supermarket.menu_2" action="action_samplewizard"/>
+    <menuitem name="submenu" id="supermarket_submenu_1" parent="supermarket.menu_1" action="supermarket_action_window"/>
+
+    
+    
+
+
+  </data>
+</odoo>

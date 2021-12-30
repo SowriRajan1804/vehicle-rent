@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <report
+             id="report_supermarket"
+             string="Report Supermarket"
+             model="supermarket.supermarket"
+             report_type="qweb-pdf"
+             name="supermarket.report_supermarket"
+             file="supermarket.report_supermarket" />
+    
+
+</odoo>
